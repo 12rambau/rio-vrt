@@ -46,7 +46,7 @@ jobs:
           sphinx-build -v -b html docs docs/_build/html -w warnings.txt
           python tests/check_warnings.py
 
-build:
+  build:
     needs: [lint, mypy]
     strategy:
       fail-fast: true
