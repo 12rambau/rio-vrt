@@ -17,7 +17,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
 ]
 requires-python = ">=3.6.9"
-dependencies = []
+dependencies = ["rasterio", ]
 
 [[project.authors]]
 name = "pierrick rambaud"
