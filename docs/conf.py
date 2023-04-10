@@ -23,6 +23,7 @@ extensions = [
     "sphinx_design",
     "sphinxcontrib.icon",
     "sphinxcontrib.btn",
+    "jupyter_sphinx",
 ]
 exclude_patterns = ["**.ipynb_checkpoints"]
 templates_path = ["_template"]

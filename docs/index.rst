@@ -4,6 +4,16 @@
 rio VRT
 =======
 
+**rio vrt** has been build to allow users in pure Python to build a vrt without installing GDAL in their environment.
+This lib is only relying on `rasterio <https://rasterio.readthedocs.io/en/stable/>`__.
+
+As a start it supports files:
+- with same projection
+- with same number of bands
+- does not support colortable
+
+Other functionalities from the original `buildvrt GDAL <https://gdal.org/programs/gdalbuildvrt.html>`__ method will be added upon request.
+
 .. toctree::
    :hidden:
 
