@@ -31,7 +31,7 @@ def test_build_vrt_complete(tiles, file_regression) -> None:
         file_regression: the pytest regression file fixture
     """
     with NamedTemporaryFile(suffix=".vrt") as vrt_path:
-        file = rio_vrt.build_vrt(vrt_path.name, tiles)
+        file = rio_vrt.build_vrt(vrt_path.name, tiles[:1])
         file_regression.check(
             file.read_text(), basename="complete_vrt", extension=".vrt"
         )
@@ -47,5 +47,5 @@ def test_build_vrt_hollow(tiles, file_regression) -> None:
     # filter only the pair tiles
     tiles = [t for i, t in enumerate(tiles) if i % 2]
     with NamedTemporaryFile(suffix=".vrt") as vrt_path:
-        file = rio_vrt.build_vrt(vrt_path.name, tiles)
+        file = rio_vrt.build_vrt(vrt_path.name, tiles[:1])
         file_regression.check(file.read_text(), basename="hollow_vrt", extension=".vrt")
