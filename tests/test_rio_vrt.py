@@ -3,6 +3,7 @@ from tempfile import NamedTemporaryFile
 from urllib.request import urlopen
 
 import xmlschema
+from bs4 import BeautifulSoup
 
 import rio_vrt
 
@@ -32,9 +33,8 @@ def test_build_vrt_complete(tiles, file_regression) -> None:
     """
     with NamedTemporaryFile(suffix=".vrt") as vrt_path:
         file = rio_vrt.build_vrt(vrt_path.name, tiles[:1])
-        file_regression.check(
-            file.read_text(), basename="complete_vrt", extension=".vrt"
-        )
+        vrt_tree = BeautifulSoup(file.read_text(), "xml").prettify()
+        file_regression.check(vrt_tree, basename="complete_vrt", extension=".vrt")
 
 
 def test_build_vrt_hollow(tiles, file_regression) -> None:
@@ -48,4 +48,5 @@ def test_build_vrt_hollow(tiles, file_regression) -> None:
     tiles = [t for i, t in enumerate(tiles) if i % 2]
     with NamedTemporaryFile(suffix=".vrt") as vrt_path:
         file = rio_vrt.build_vrt(vrt_path.name, tiles[:1])
-        file_regression.check(file.read_text(), basename="hollow_vrt", extension=".vrt")
+        vrt_tree = BeautifulSoup(file.read_text(), "xml").prettify()
+        file_regression.check(vrt_tree, basename="hollow_vrt", extension=".vrt")
