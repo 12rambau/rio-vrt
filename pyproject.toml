@@ -35,7 +35,7 @@ Homepage = "https://github.com/12rambau/rio-vrt"
 
 [project.optional-dependencies]
 dev = ["pre-commit", "commitizen", "nox", "mypy"]
-test = ["pytest", "pytest-sugar", "pytest-cov", "pytest-deadfixtures"]
+test = ["pytest", "pytest-sugar", "pytest-cov", "pytest-deadfixtures", "pytest-regressions", "xmlschema"]
 doc = ["sphinx", "pydata-sphinx-theme", "sphinx-copybutton", "sphinx-design", "sphinx-icon", "sphinx-btn"]
 
 [tool.setuptools]

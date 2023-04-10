@@ -1,4 +1,4 @@
-"""rasterio based vrt creation."""
+"""Rasterio based vrt creation."""
 
 import xml.etree.cElementTree as ET
 from pathlib import Path
@@ -7,6 +7,8 @@ from xml.dom import minidom
 
 import rasterio as rio
 from rasterio.enums import ColorInterp
+
+from .enums import types
 
 
 def build_vrt(vrt_path: Union[str, Path], files: list[Union[str, Path]]) -> Path:
@@ -61,12 +63,9 @@ def build_vrt(vrt_path: Union[str, Path], files: list[Union[str, Path]]) -> Path
             right = max(right, f.bounds.right)
             top = max(top, f.bounds.top)
 
-    # extract transform from the "origin" tile i.e. the top-left corner
-    # this avoids the final map to be completely offset
-    for file in files:
-        with rio.open(file) as f:
-            if f.bounds.left == left and f.bounds.top == top:
-                transform = f.transform
+        # rebuild the affine transformation from gathered information
+        # negative y_res as we start from the top-left corner
+        transform = rio.Affine.from_gdal(left, x_res, 0, top, 0, -y_res)
 
     total_width = round((right - left) / x_res)
     total_height = round((top - bottom) / y_res)
@@ -80,14 +79,18 @@ def build_vrt(vrt_path: Union[str, Path], files: list[Union[str, Path]]) -> Path
     ET.SubElement(VRTDataset, "GeoTransform").text = ", ".join(
         [str(i) for i in transform.to_gdal()]
     )
-    ET.SubElement(VRTDataset, "overViewList", {"resampling": "nearest"}).text = "2 4 8"
+    ET.SubElement(VRTDataset, "OverviewList", {"resampling": "nearest"}).text = "2 4 8"
 
     # create the bands subelements
     VRTRasterBands = {}
     for i in indexes:
         VRTRasterBands[i] = ET.SubElement(
-            VRTDataset, "VRTRasterBand", {"datatype": dtypes[i - 1], "band": str(i)}
+            VRTDataset,
+            "VRTRasterBand",
+            {"dataType": types[dtypes[i - 1]], "band": str(i)},
         )
+        ET.SubElement(VRTRasterBands[i], "Offset").text = "0.0"
+        ET.SubElement(VRTRasterBands[i], "Scale").text = "1.0"
         if colorinterps[i - 1] != ColorInterp.undefined:
             ET.SubElement(VRTRasterBands[i], "ColorInterp").text = colorinterps[
                 i - 1
@@ -114,7 +117,7 @@ def build_vrt(vrt_path: Union[str, Path], files: list[Union[str, Path]]) -> Path
                     {
                         "RasterXSize": str(src.width),
                         "RasterYSize": str(src.height),
-                        "DataType": str(dtypes[i - 1]),
+                        "DataType": types[dtypes[i - 1]],
                         "BlockXSize": str(src.profile["blockxsize"]),
                         "BlockYSize": str(src.profile["blockysize"]),
                     },
@@ -141,8 +144,6 @@ def build_vrt(vrt_path: Union[str, Path], files: list[Union[str, Path]]) -> Path
                 )
                 if nodatavals[i - 1] is not None:
                     ET.SubElement(Source, "NoDataValue").text = str(nodatavals[i - 1])
-                ET.SubElement(Source, "Offset").text = "0.0"
-                ET.SubElement(Source, "Scale").text = "1.0"
 
                 if colorinterps[i - 1] == ColorInterp.alpha:
                     ET.SubElement(Source, "UseMaskBand").text = "true"
