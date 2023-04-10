@@ -2,7 +2,7 @@
 
 import xml.etree.cElementTree as ET
 from pathlib import Path
-from typing import Union
+from typing import List, Union
 from xml.dom import minidom
 
 import rasterio as rio
@@ -11,7 +11,7 @@ from rasterio.enums import ColorInterp
 from .enums import types
 
 
-def build_vrt(vrt_path: Union[str, Path], files: list[Union[str, Path]]) -> Path:
+def build_vrt(vrt_path: Union[str, Path], files: List[Union[str, Path]]) -> Path:
     """Create a vrt file from multiple files.
 
     Arguments:
