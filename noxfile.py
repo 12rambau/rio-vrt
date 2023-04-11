@@ -27,8 +27,8 @@ def docs(session):
     build = session.posargs.pop() if session.posargs else "html"
     session.install(".[doc]")
     # patch version in nox instead of pyproject to avoid blocking conda releases
-    session.install("git+https://github.com/jenshnielsen/sphinx.git@fix_9884")
-    session.install("git+https://github.com/12rambau/deprecated.git@master")
+    session.install("git+https://github.com/sphinx-doc/sphinx.git")
+    session.install("git+https://github.com/12rambau/deprecated.git")
     session.run("sphinx-apidoc", "-o", "docs/api", "rio_vrt")
     session.run(
         "sphinx-build",
