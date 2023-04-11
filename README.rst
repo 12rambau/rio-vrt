@@ -45,7 +45,14 @@ rio VRT
 Overview
 --------
 
-A simple librairy to build a vrt from multiple raster source relying only on rasterio
+A simple librairy to build a vrt from multiple raster source relying only on rasterio.
+
+.. code-block:: python
+
+    from rio_vrt import build_vrt
+
+    raster_files = ["example.tif", "example2.tif", "...", "examplen.tif"]
+    vrt_file = build_vrt("example.vrt", raster_files)
 
 Credits
 -------

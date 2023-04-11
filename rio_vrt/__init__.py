@@ -4,11 +4,4 @@ __version__ = "0.0.0"
 __author__ = "pierrick rambaud"
 __email__ = "pierrick.rambaud49@gmail.com"
 
-
-def hello_world() -> str:
-    """Hello world demo method.
-
-    Returns:
-        the hello world string
-    """
-    return "hello world !"
+from .vrt import build_vrt as build_vrt
