@@ -33,8 +33,6 @@ html_static_path = ["_static"]
 html_theme_options = {
     "logo": {
         "text": project,
-        "image_light": "_static/logo_light.png",
-        "image_dark": "static_/logo_dark.png",
     },
     "use_edit_page_button": True,
     "footer_end": ["theme-version", "pypackage-credit"],
@@ -58,7 +56,6 @@ html_context = {
     "doc_path": "docs",
 }
 html_css_files = ["custom.css"]
-html_favicon = "_static/favicon.svg"
 
 # -- Options for autosummary/autodoc output ------------------------------------
 autosummary_generate = True
