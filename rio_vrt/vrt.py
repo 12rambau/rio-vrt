@@ -11,12 +11,15 @@ from rasterio.enums import ColorInterp
 from .enums import types
 
 
-def build_vrt(vrt_path: Union[str, Path], files: List[Union[str, Path]]) -> Path:
+def build_vrt(
+    vrt_path: Union[str, Path], files: List[Union[str, Path]], relative: bool = False
+) -> Path:
     """Create a vrt file from multiple files.
 
     Arguments:
         vrt_path: the final vrt file
         files: a list of rasterio readable files
+        relative: use a path relative to the vrt file. The files path must be relative to the vrt.
 
     Returns:
         the path to the vrt file
@@ -25,7 +28,7 @@ def build_vrt(vrt_path: Union[str, Path], files: List[Union[str, Path]]) -> Path
     vrt_path = Path(vrt_path)
 
     # transform all the file path into Path objects
-    files = [Path(f) for f in files]
+    files = [Path(f).resolve() for f in files]
 
     # cannot do anything if there are no files
     if len(files) == 0:
@@ -98,7 +101,7 @@ def build_vrt(vrt_path: Union[str, Path], files: List[Union[str, Path]]) -> Path
 
     # add the files
     for f in files:
-        relativeToVRT = "0" if f.is_absolute() else "1"
+        relativeToVRT = "1" if relative is True else "0"
         with rio.open(f) as src:
             for i in indexes:
                 if colorinterps[i - 1] == ColorInterp.alpha:
@@ -109,7 +112,9 @@ def build_vrt(vrt_path: Union[str, Path], files: List[Union[str, Path]]) -> Path
                 Source = ET.SubElement(VRTRasterBands[i], source_type)
                 ET.SubElement(
                     Source, "SourceFilename", {"relativeToVRT": relativeToVRT}
-                ).text = str(f)
+                ).text = (
+                    str(f) if relative is False else str(f.relative_to(vrt_path.parent))
+                )
                 ET.SubElement(Source, "SourceBand").text = str(i)
                 ET.SubElement(
                     Source,

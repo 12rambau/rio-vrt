@@ -20,8 +20,8 @@
    Gray
   </ColorInterp>
   <SimpleSource>
-   <SourceFilename relativeToVRT="0">
-    /home/borntobealive/libs/rio-vrt/tests/data/tile_1.tiff
+   <SourceFilename relativeToVRT="1">
+    tile_1.tiff
    </SourceFilename>
    <SourceBand>
     1
@@ -39,8 +39,8 @@
    1.0
   </Scale>
   <SimpleSource>
-   <SourceFilename relativeToVRT="0">
-    /home/borntobealive/libs/rio-vrt/tests/data/tile_1.tiff
+   <SourceFilename relativeToVRT="1">
+    tile_1.tiff
    </SourceFilename>
    <SourceBand>
     2
@@ -58,8 +58,8 @@
    1.0
   </Scale>
   <SimpleSource>
-   <SourceFilename relativeToVRT="0">
-    /home/borntobealive/libs/rio-vrt/tests/data/tile_1.tiff
+   <SourceFilename relativeToVRT="1">
+    tile_1.tiff
    </SourceFilename>
    <SourceBand>
     3
@@ -77,8 +77,8 @@
    1.0
   </Scale>
   <SimpleSource>
-   <SourceFilename relativeToVRT="0">
-    /home/borntobealive/libs/rio-vrt/tests/data/tile_1.tiff
+   <SourceFilename relativeToVRT="1">
+    tile_1.tiff
    </SourceFilename>
    <SourceBand>
     4
@@ -96,8 +96,8 @@
    1.0
   </Scale>
   <SimpleSource>
-   <SourceFilename relativeToVRT="0">
-    /home/borntobealive/libs/rio-vrt/tests/data/tile_1.tiff
+   <SourceFilename relativeToVRT="1">
+    tile_1.tiff
    </SourceFilename>
    <SourceBand>
     5
