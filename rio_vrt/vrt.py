@@ -154,7 +154,7 @@ def build_vrt(
                     ET.SubElement(Source, "UseMaskBand").text = "true"
 
     # write the file
-    vrt_path.write_text(
+    vrt_path.resolve().write_text(
         minidom.parseString(ET.tostring(VRTDataset).decode("utf-8"))
         .toprettyxml(indent="  ")
         .replace("&quot;", '"')
