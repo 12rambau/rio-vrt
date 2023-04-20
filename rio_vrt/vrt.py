@@ -81,14 +81,14 @@ def build_vrt(
     total_height = round((top - bottom) / y_res)
 
     # start the tree
-    VRTDataset = ET.Element(
-        "VRTDataset",
-        {"rasterXSize": str(total_width), "rasterYSize": str(total_height)},
-    )
+    attr = {"rasterXSize": str(total_width), "rasterYSize": str(total_height)}
+    VRTDataset = ET.Element("VRTDataset", attr)
+
     ET.SubElement(VRTDataset, "SRS", {"dataAxisToSRSAxisMapping": "2,1"}).text = crs.wkt
-    ET.SubElement(VRTDataset, "GeoTransform").text = ", ".join(
-        [str(i) for i in transform.to_gdal()]
-    )
+
+    text = ", ".join([str(i) for i in transform.to_gdal()])
+    ET.SubElement(VRTDataset, "GeoTransform").text = text
+
     ET.SubElement(VRTDataset, "OverviewList", {"resampling": "nearest"}).text = "2 4 8"
 
     # add the rasterbands
@@ -98,37 +98,34 @@ def build_vrt(
     if mosaic:
         VRTRasterBands = {}
         for i in indexes:
-            VRTRasterBands[i] = ET.SubElement(
-                VRTDataset,
-                "VRTRasterBand",
-                {"dataType": types[dtypes[i - 1]], "band": str(i)},
-            )
+            attr = {"dataType": types[dtypes[i - 1]], "band": str(i)}
+            VRTRasterBands[i] = ET.SubElement(VRTDataset, "VRTRasterBand", attr)
+
             ET.SubElement(VRTRasterBands[i], "Offset").text = "0.0"
+
             ET.SubElement(VRTRasterBands[i], "Scale").text = "1.0"
+
             if colorinterps[i - 1] != ColorInterp.undefined:
-                ET.SubElement(VRTRasterBands[i], "ColorInterp").text = colorinterps[
-                    i - 1
-                ].name.capitalize()
+                color = colorinterps[i - 1].name.capitalize()
+                ET.SubElement(VRTRasterBands[i], "ColorInterp").text = color
 
         # add the files
         for f in files:
             relativeToVRT = "1" if relative is True else "0"
             with rio.open(f) as src:
                 for i in indexes:
-                    if colorinterps[i - 1] == ColorInterp.alpha:
-                        source_type = "ComplexSource"
-                    else:
-                        source_type = "SimpleSource"
-
+                    is_alpha = colorinterps[i - 1] == ColorInterp.alpha
+                    source_type = "ComplexSource" if is_alpha else "SimpleSource"
                     Source = ET.SubElement(VRTRasterBands[i], source_type)
-                    ET.SubElement(
-                        Source, "SourceFilename", {"relativeToVRT": relativeToVRT}
-                    ).text = (
-                        str(f)
-                        if relative is False
-                        else str(f.relative_to(vrt_path.parent))
+
+                    attr = {"relativeToVRT": relativeToVRT}
+                    text = (
+                        str(f) if not relative else str(f.relative_to(vrt_path.parent))
                     )
+                    ET.SubElement(Source, "SourceFilename", attr).text = text
+
                     ET.SubElement(Source, "SourceBand").text = str(i)
+
                     ET.SubElement(
                         Source,
                         "SourceProperties",
@@ -140,6 +137,7 @@ def build_vrt(
                             "BlockYSize": str(src.profile["blockysize"]),
                         },
                     )
+
                     ET.SubElement(
                         Source,
                         "SrcRect",
@@ -150,6 +148,7 @@ def build_vrt(
                             "ySize": str(src.height),
                         },
                     )
+
                     ET.SubElement(
                         Source,
                         "DstRect",
@@ -160,10 +159,10 @@ def build_vrt(
                             "ySize": str(src.height),
                         },
                     )
+
                     if nodatavals[i - 1] is not None:
-                        ET.SubElement(Source, "NoDataValue").text = str(
-                            nodatavals[i - 1]
-                        )
+                        text = str(nodatavals[i - 1])
+                        ET.SubElement(Source, "NoDataValue").text = text
 
                     if colorinterps[i - 1] == ColorInterp.alpha:
                         ET.SubElement(Source, "UseMaskBand").text = "true"
@@ -173,19 +172,18 @@ def build_vrt(
     # display upon reading
     elif not mosaic:
         for i, f in enumerate(files):
-            VRTRasterBands = ET.SubElement(
-                VRTDataset,
-                "VRTRasterBand",
-                {"dataType": types[dtypes[0]], "band": str(i)},
-            )
-            relativeToVRT = "1" if relative is True else "0"
+            attr = {"dataType": types[dtypes[0]], "band": str(i)}
+            VRTRasterBands = ET.SubElement(VRTDataset, "VRTRasterBand", attr)
+
             ComplexSource = ET.SubElement(VRTRasterBands, "ComplexSource")
-            ET.SubElement(
-                ComplexSource, "SourceFilename", {"relativeToVRT": relativeToVRT}
-            ).text = (
-                str(f) if relative is False else str(f.relative_to(vrt_path.parent))
-            )
+
+            relativeToVRT = "1" if relative is True else "0"
+            attr = {"relativeToVRT": relativeToVRT}
+            text = str(f) if relative is False else str(f.relative_to(vrt_path.parent))
+            ET.SubElement(ComplexSource, "SourceFilename", attr).text = text
+
             ET.SubElement(ComplexSource, "SourceBand").text = "1"
+
             with rio.open(f) as src:
                 ET.SubElement(
                     ComplexSource,
@@ -198,6 +196,7 @@ def build_vrt(
                         "BlockYSize": str(src.profile["blockysize"]),
                     },
                 )
+
                 ET.SubElement(
                     ComplexSource,
                     "SrcRect",
@@ -208,6 +207,7 @@ def build_vrt(
                         "ySize": str(src.height),
                     },
                 )
+
                 ET.SubElement(
                     ComplexSource,
                     "DstRect",
