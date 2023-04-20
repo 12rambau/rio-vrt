@@ -9,6 +9,8 @@ from bs4 import BeautifulSoup
 
 import rio_vrt
 
+_xsd_file = "https://raw.githubusercontent.com/OSGeo/gdal/master/data/gdalvrt.xsd"
+
 
 def test_build_vrt_shema(tiles: List[Path], data_dir: Path) -> None:
     """Ensure the build vrt is respecting GDAL shema.
@@ -19,10 +21,20 @@ def test_build_vrt_shema(tiles: List[Path], data_dir: Path) -> None:
     """
     with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
         vrt_file = rio_vrt.build_vrt(vrt_path.name, tiles)
-        xsd_file = (
-            "https://raw.githubusercontent.com/OSGeo/gdal/master/data/gdalvrt.xsd"
-        )
-        xml_schema = xmlschema.XMLSchema(urlopen(xsd_file))
+        xml_schema = xmlschema.XMLSchema(urlopen(_xsd_file))
+        assert xml_schema.is_valid(vrt_file)
+
+
+def test_build_vrt_stack_shema(tiles: List[Path], data_dir: Path) -> None:
+    """Ensure the build vrt is respecting GDAL shema.
+
+    Args:
+        tiles: the list of tile path
+        data_dir: the data directory
+    """
+    with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+        vrt_file = rio_vrt.build_vrt(vrt_path.name, tiles, mosaic=False)
+        xml_schema = xmlschema.XMLSchema(urlopen(_xsd_file))
         assert xml_schema.is_valid(vrt_file)
 
 
