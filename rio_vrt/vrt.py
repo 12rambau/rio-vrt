@@ -11,6 +11,29 @@ from rasterio.enums import ColorInterp
 from .enums import types
 
 
+def _add_source_content(
+    Source: ET.Element, src: rio.DatasetReader, type: str, xoff: str, yoff: str
+) -> None:
+    """Add the content of a sourcefile in xml."""
+    width, height = str(src.width), str(src.height)
+    blockx, blocky = str(src.profile["blockxsize"]), str(src.profile["blockysize"])
+
+    attr = {
+        "RasterXSize": width,
+        "RasterYSize": height,
+        "DataType": type,
+        "BlockXSize": blockx,
+        "BlockYSize": blocky,
+    }
+    ET.SubElement(Source, "SourceProperties", attr)
+
+    attr = {"xOff": "0", "yOff": "0", "xSize": width, "ySize": height}
+    ET.SubElement(Source, "SrcRect", attr)
+
+    attr = {"xOff": xoff, "yOff": yoff, "xSize": width, "ySize": height}
+    ET.SubElement(Source, "DstRect", attr)
+
+
 def build_vrt(
     vrt_path: Union[str, Path],
     files: List[Union[str, Path]],
@@ -126,38 +149,12 @@ def build_vrt(
 
                     ET.SubElement(Source, "SourceBand").text = str(i)
 
-                    ET.SubElement(
-                        Source,
-                        "SourceProperties",
-                        {
-                            "RasterXSize": str(src.width),
-                            "RasterYSize": str(src.height),
-                            "DataType": types[dtypes[i - 1]],
-                            "BlockXSize": str(src.profile["blockxsize"]),
-                            "BlockYSize": str(src.profile["blockysize"]),
-                        },
-                    )
-
-                    ET.SubElement(
-                        Source,
-                        "SrcRect",
-                        {
-                            "xOff": "0",
-                            "yOff": "0",
-                            "xSize": str(src.width),
-                            "ySize": str(src.height),
-                        },
-                    )
-
-                    ET.SubElement(
-                        Source,
-                        "DstRect",
-                        {
-                            "xOff": str(abs(round((src.bounds.left - left) / x_res))),
-                            "yOff": str(abs(round((src.bounds.top - top) / y_res))),
-                            "xSize": str(src.width),
-                            "ySize": str(src.height),
-                        },
+                    _add_source_content(
+                        Source=Source,
+                        src=src,
+                        type=types[dtypes[i - 1]],
+                        xoff=str(abs(round((src.bounds.left - left) / x_res))),
+                        yoff=str(abs(round((src.bounds.top - top) / y_res))),
                     )
 
                     if nodatavals[i - 1] is not None:
@@ -185,38 +182,12 @@ def build_vrt(
             ET.SubElement(ComplexSource, "SourceBand").text = "1"
 
             with rio.open(f) as src:
-                ET.SubElement(
-                    ComplexSource,
-                    "SourceProperties",
-                    {
-                        "RasterXSize": str(src.width),
-                        "RasterYSize": str(src.height),
-                        "DataType": types[dtypes[0]],
-                        "BlockXSize": str(src.profile["blockxsize"]),
-                        "BlockYSize": str(src.profile["blockysize"]),
-                    },
-                )
-
-                ET.SubElement(
-                    ComplexSource,
-                    "SrcRect",
-                    {
-                        "xOff": "0",
-                        "yOff": "0",
-                        "xSize": str(src.width),
-                        "ySize": str(src.height),
-                    },
-                )
-
-                ET.SubElement(
-                    ComplexSource,
-                    "DstRect",
-                    {
-                        "xOff": str(abs(round((src.bounds.left - left) / x_res))),
-                        "yOff": str(abs(round((src.bounds.top - top) / y_res))),
-                        "xSize": str(src.width),
-                        "ySize": str(src.height),
-                    },
+                _add_source_content(
+                    Source=ComplexSource,
+                    src=src,
+                    type=types[dtypes[0]],
+                    xoff=str(abs(round((src.bounds.left - left) / x_res))),
+                    yoff=str(abs(round((src.bounds.top - top) / y_res))),
                 )
 
     # write the file
