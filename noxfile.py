@@ -46,6 +46,6 @@ def docs(session):
 @nox.session(name="mypy", reuse_venv=True)
 def mypy(session):
     """Run a mypy check of the lib."""
-    session.install(".[dev]")
+    session.install("mypy")
     test_files = session.posargs or ["rio_vrt"]
     session.run("mypy", *test_files)
