@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rio-vrt"
-version = "0.1.0"
+version = "0.2.0"
 description = "A simple librairy to build a vrt from multiple raster source relying only on rasterio"
 keywords = ["skeleton", "Python"]
 classifiers = [
@@ -49,7 +49,7 @@ exclude = ["docs*", "tests*"]
 [tool.commitizen]
 tag_format = "v$major.$minor.$patch$prerelease"
 update_changelog_on_bump = false
-version = "0.1.0"
+version = "0.2.0"
 version_files = [
     "pyproject.toml:version",
     "rio_vrt/__init__.py:__version__",
