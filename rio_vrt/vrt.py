@@ -1,6 +1,7 @@
 """Rasterio based vrt creation."""
 
 import xml.etree.cElementTree as ET
+from os.path import relpath
 from pathlib import Path
 from typing import List, Union
 from xml.dom import minidom
@@ -52,7 +53,7 @@ def build_vrt(
         the path to the vrt file
     """
     # transform the final file in Path
-    vrt_path = Path(vrt_path)
+    vrt_path = Path(vrt_path).resolve()
 
     # transform all the file path into Path objects
     files = [Path(f).resolve() for f in files]
@@ -142,9 +143,7 @@ def build_vrt(
                     Source = ET.SubElement(VRTRasterBands_dict[i], source_type)
 
                     attr = {"relativeToVRT": relativeToVRT}
-                    text = (
-                        str(f) if not relative else str(f.relative_to(vrt_path.parent))
-                    )
+                    text = str(f) if not relative else relpath(f, vrt_path.parent)
                     ET.SubElement(Source, "SourceFilename", attr).text = text
 
                     ET.SubElement(Source, "SourceBand").text = str(i)
@@ -176,7 +175,7 @@ def build_vrt(
 
             relativeToVRT = "1" if relative is True else "0"
             attr = {"relativeToVRT": relativeToVRT}
-            text = str(f) if relative is False else str(f.relative_to(vrt_path.parent))
+            text = str(f) if not relative else relpath(f, vrt_path.parent)
             ET.SubElement(ComplexSource, "SourceFilename", attr).text = text
 
             ET.SubElement(ComplexSource, "SourceBand").text = "1"
