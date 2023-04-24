@@ -12,7 +12,7 @@ import rio_vrt
 _xsd_file = "https://raw.githubusercontent.com/OSGeo/gdal/master/data/gdalvrt.xsd"
 
 
-def test_build_vrt_shema(tiles: List[Path], data_dir: Path) -> None:
+def test_build_vrt_html_shema(tiles: List[Path], data_dir: Path) -> None:
     """Ensure the build vrt is respecting GDAL shema.
 
     Args:
