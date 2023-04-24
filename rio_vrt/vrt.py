@@ -119,18 +119,18 @@ def build_vrt(
     # mosaicking create 1 band for each band of the images and add al the fils as
     # simple sources along with color informations
     if mosaic:
-        VRTRasterBands = {}
+        VRTRasterBands_dict = {}
         for i in indexes:
             attr = {"dataType": types[dtypes[i - 1]], "band": str(i)}
-            VRTRasterBands[i] = ET.SubElement(VRTDataset, "VRTRasterBand", attr)
+            VRTRasterBands_dict[i] = ET.SubElement(VRTDataset, "VRTRasterBand", attr)
 
-            ET.SubElement(VRTRasterBands[i], "Offset").text = "0.0"
+            ET.SubElement(VRTRasterBands_dict[i], "Offset").text = "0.0"
 
-            ET.SubElement(VRTRasterBands[i], "Scale").text = "1.0"
+            ET.SubElement(VRTRasterBands_dict[i], "Scale").text = "1.0"
 
             if colorinterps[i - 1] != ColorInterp.undefined:
                 color = colorinterps[i - 1].name.capitalize()
-                ET.SubElement(VRTRasterBands[i], "ColorInterp").text = color
+                ET.SubElement(VRTRasterBands_dict[i], "ColorInterp").text = color
 
         # add the files
         for f in files:
@@ -139,7 +139,7 @@ def build_vrt(
                 for i in indexes:
                     is_alpha = colorinterps[i - 1] == ColorInterp.alpha
                     source_type = "ComplexSource" if is_alpha else "SimpleSource"
-                    Source = ET.SubElement(VRTRasterBands[i], source_type)
+                    Source = ET.SubElement(VRTRasterBands_dict[i], source_type)
 
                     attr = {"relativeToVRT": relativeToVRT}
                     text = (
