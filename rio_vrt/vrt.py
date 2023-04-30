@@ -4,7 +4,7 @@ import xml.etree.cElementTree as ET
 from os.path import relpath
 from pathlib import Path
 from statistics import mean
-from typing import List, Union
+from typing import List, Tuple, Union
 from xml.dom import minidom
 
 import rasterio as rio
@@ -41,7 +41,7 @@ def build_vrt(
     files: List[Union[str, Path]],
     relative: bool = False,
     mosaic: bool = True,
-    res: str = "average",
+    res: Union[str, Tuple[float, float]] = "average",
 ) -> Path:
     """Create a vrt file from multiple files.
 
