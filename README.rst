@@ -53,4 +53,4 @@ A simple librairy to build a vrt from multiple raster source relying only on ras
 Credits
 -------
 
-This package was created with `Cookiecutter <https://github.com/cookiecutter/cookiecutter>`__ and the `12rambau/pypackage <https://github.com/12rambau/pypackage>` project template.
+This package was created with `Cookiecutter <https://github.com/cookiecutter/cookiecutter>`__ and the `12rambau/pypackage <https://github.com/12rambau/pypackage>`__ project template.
