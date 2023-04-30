@@ -121,7 +121,7 @@ def build_vrt(
         xres, yres = min(*xres_), min(*yres_)
     elif res == "average":
         xres, yres = mean(xres_), mean(yres_)
-    else:
+    elif isinstance(res, tuple):
         xres, yres = res
 
     # rebuild the affine transformation from gathered information along with total bounds
