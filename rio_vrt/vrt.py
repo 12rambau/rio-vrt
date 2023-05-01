@@ -29,7 +29,7 @@ def _add_source_content(
 
     # optional attributes
     if blockx and blocky:
-        attr["BlockXSize"], attr["BlockySize"] = blockx, blocky
+        attr["BlockXSize"], attr["BlockYSize"] = blockx, blocky
 
     ET.SubElement(Source, "SourceProperties", attr)
 
