@@ -4,6 +4,7 @@ from tempfile import NamedTemporaryFile
 from typing import List
 from urllib.request import urlopen
 
+import pytest
 import xmlschema
 from bs4 import BeautifulSoup
 
@@ -82,3 +83,9 @@ def test_build_vrt_stack(tiles: List[Path], data_dir: Path, file_regression) -> 
         file = rio_vrt.build_vrt(vrt_path.name, tiles, relative=True, mosaic=False)
         vrt_tree = BeautifulSoup(file.read_text(), "xml").prettify()
         file_regression.check(vrt_tree, basename="stack_vrt", extension=".vrt")
+
+
+def test_vrt_empty() -> None:
+    """Test that an error is raised when the tile list is empty."""
+    with pytest.raises(ValueError):
+        rio_vrt.build_vrt("test.vrt", [])
