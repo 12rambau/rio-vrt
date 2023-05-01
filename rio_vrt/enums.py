@@ -16,3 +16,10 @@ types = {
     "cfloat64": "CFloat64",
 }
 "cooresponding XML types to python one"
+
+resolutions = [
+    "average",
+    "lowest",
+    "highest",
+]
+"accepted resolutions in the res parameters"

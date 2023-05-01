@@ -3,13 +3,14 @@
 import xml.etree.cElementTree as ET
 from os.path import relpath
 from pathlib import Path
-from typing import List, Union
+from statistics import mean
+from typing import List, Tuple, Union
 from xml.dom import minidom
 
 import rasterio as rio
 from rasterio.enums import ColorInterp
 
-from .enums import types
+from .enums import resolutions, types
 
 
 def _add_source_content(
@@ -40,6 +41,7 @@ def build_vrt(
     files: List[Union[str, Path]],
     relative: bool = False,
     mosaic: bool = True,
+    res: Union[str, Tuple[float, float]] = "average",
 ) -> Path:
     """Create a vrt file from multiple files.
 
@@ -47,7 +49,8 @@ def build_vrt(
         vrt_path: the final vrt file
         files: a list of rasterio readable files
         relative: use a path relative to the vrt file. The files path must be relative to the vrt.
-        mosaic: The method to use to gather images in the vrt. ``MOSAIC`` (True) will mosaic each band of each image together. ``STACK`` (False) will create one band for each file using the first band of each file.
+        mosaic: The method to use to gather images in the vrt. ``MOSAIC`` (True) will mosaic each band of each image together. ``STACK`` (False) will create one band for each file using the first band of each file.*
+        res: The resolution to use in the vrt geotransform. You can use a string (average, highest or lowest) or use a defined tuple of values (xres, yres).
 
     Returns:
         the path to the vrt file
@@ -62,11 +65,15 @@ def build_vrt(
     if len(files) == 0:
         raise ValueError("There should be at least 1 file to create a vrt.")
 
+    # check the res value
+    if isinstance(res, str) and res not in resolutions:
+        raise ValueError(
+            'the provided resolution cannot be use: "{res}", please use one of the existing keywords'
+        )
+
     # read global informations from the first file
     with rio.open(files[0]) as f:
         crs = f.crs
-        left, bottom, right, top = f.bounds
-        x_res, y_res = f.res
         count = f.count
         dtypes = f.dtypes
         colorinterps = f.colorinterp
@@ -91,18 +98,37 @@ def build_vrt(
                 )
 
     # read all files to extract information on the spatial extend of the vrt
+    left_, bottom_, right_, top_, xres_, yres_ = [], [], [], [], [], []
     for file in files:
         with rio.open(file) as f:
-            left = min(left, f.bounds.left)
-            bottom = min(bottom, f.bounds.bottom)
-            right = max(right, f.bounds.right)
-            top = max(top, f.bounds.top)
+            xres_.append(f.res[0])
+            yres_.append(f.res[0])
+            left_.append(f.bounds.left)
+            right_.append(f.bounds.right)
+            top_.append(f.bounds.top)
+            bottom_.append(f.bounds.bottom)
+
+    # get the spatial extend of the dataset
+    left = min(*left_)
+    bottom = min(*bottom_)
+    right = max(*right_)
+    top = max(*top_)
+
+    # get the resolution
+    if res == "highest":
+        xres, yres = max(*xres_), max(*yres_)
+    elif res == "lowest":
+        xres, yres = min(*xres_), min(*yres_)
+    elif res == "average":
+        xres, yres = mean(xres_), mean(yres_)
+    elif isinstance(res, tuple):
+        xres, yres = res
 
     # rebuild the affine transformation from gathered information along with total bounds
     # negative y_res as we start from the top-left corner
-    transform = rio.Affine.from_gdal(left, x_res, 0, top, 0, -y_res)
-    total_width = round((right - left) / x_res)
-    total_height = round((top - bottom) / y_res)
+    transform = rio.Affine.from_gdal(left, xres, 0, top, 0, -yres)
+    total_width = round((right - left) / xres)
+    total_height = round((top - bottom) / yres)
 
     # start the tree
     attr = {"rasterXSize": str(total_width), "rasterYSize": str(total_height)}
@@ -152,8 +178,8 @@ def build_vrt(
                         Source=Source,
                         src=src,
                         type=types[dtypes[i - 1]],
-                        xoff=str(abs(round((src.bounds.left - left) / x_res))),
-                        yoff=str(abs(round((src.bounds.top - top) / y_res))),
+                        xoff=str(abs(round((src.bounds.left - left) / xres))),
+                        yoff=str(abs(round((src.bounds.top - top) / yres))),
                     )
 
                     if nodatavals[i - 1] is not None:
@@ -185,8 +211,8 @@ def build_vrt(
                     Source=ComplexSource,
                     src=src,
                     type=types[dtypes[0]],
-                    xoff=str(abs(round((src.bounds.left - left) / x_res))),
-                    yoff=str(abs(round((src.bounds.top - top) / y_res))),
+                    xoff=str(abs(round((src.bounds.left - left) / xres))),
+                    yoff=str(abs(round((src.bounds.top - top) / yres))),
                 )
 
     # write the file
