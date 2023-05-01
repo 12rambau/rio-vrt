@@ -26,7 +26,7 @@ def test_build_vrt_html_shema(tiles: List[Path], data_dir: Path) -> None:
     with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
         vrt_file = rio_vrt.build_vrt(vrt_path.name, tiles)
         xml_schema = xmlschema.XMLSchema(urlopen(_xsd_file))
-        assert xml_schema.is_valid(vrt_file)
+        assert xml_schema.validate(vrt_file) is None
 
 
 def test_build_vrt_stack_shema(tiles: List[Path], data_dir: Path) -> None:
@@ -39,7 +39,7 @@ def test_build_vrt_stack_shema(tiles: List[Path], data_dir: Path) -> None:
     with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
         vrt_file = rio_vrt.build_vrt(vrt_path.name, tiles, mosaic=False)
         xml_schema = xmlschema.XMLSchema(urlopen(_xsd_file))
-        assert xml_schema.is_valid(vrt_file)
+        assert xml_schema.validate(vrt_file) is None
 
 
 def test_build_vrt_complete(tiles: List[Path], data_dir: Path, file_regression) -> None:

@@ -18,15 +18,19 @@ def _add_source_content(
 ) -> None:
     """Add the content of a sourcefile in xml."""
     width, height = str(src.width), str(src.height)
-    blockx, blocky = str(src.profile["blockxsize"]), str(src.profile["blockysize"])
+    blockx = str(src.profile.get("blockxsize", ""))
+    blocky = str(src.profile.get("blockysize", ""))
 
     attr = {
         "RasterXSize": width,
         "RasterYSize": height,
         "DataType": type,
-        "BlockXSize": blockx,
-        "BlockYSize": blocky,
     }
+
+    # optional attributes
+    if blockx and blocky:
+        attr["BlockXSize"], attr["BlockySize"] = blockx, blocky
+
     ET.SubElement(Source, "SourceProperties", attr)
 
     attr = {"xOff": "0", "yOff": "0", "xSize": width, "ySize": height}
@@ -162,13 +166,20 @@ def build_vrt(
                 color = colorinterps[i - 1].name.capitalize()
                 ET.SubElement(VRTRasterBands_dict[i], "ColorInterp").text = color
 
+            if nodatavals[i - 1] is not None:
+                text = str(nodatavals[i - 1])
+                ET.SubElement(VRTRasterBands_dict[i], "NoDataValue").text = text
+
         # add the files
         for f in files:
             relativeToVRT = "1" if relative is True else "0"
             with rio.open(f) as src:
                 for i in indexes:
                     is_alpha = colorinterps[i - 1] == ColorInterp.alpha
-                    source_type = "ComplexSource" if is_alpha else "SimpleSource"
+                    has_nodata = nodatavals[i - 1] is not None
+                    source_type = (
+                        "ComplexSource" if is_alpha or has_nodata else "SimpleSource"
+                    )
                     Source = ET.SubElement(VRTRasterBands_dict[i], source_type)
 
                     attr = {"relativeToVRT": relativeToVRT}
@@ -187,7 +198,7 @@ def build_vrt(
 
                     if nodatavals[i - 1] is not None:
                         text = str(nodatavals[i - 1])
-                        ET.SubElement(Source, "NoDataValue").text = text
+                        ET.SubElement(Source, "NODATA").text = text
 
                     if colorinterps[i - 1] == ColorInterp.alpha:
                         ET.SubElement(Source, "UseMaskBand").text = "true"
