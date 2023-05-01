@@ -4,6 +4,7 @@ from tempfile import NamedTemporaryFile
 from typing import List
 from urllib.request import urlopen
 
+import numpy as np
 import pytest
 import rasterio as rio
 import xmlschema
@@ -118,6 +119,30 @@ def test_vrt_wrong_crs(tiles: List[Path]) -> None:
 
         with rio.open(extra_image.name, "w", **kwargs) as dst:
             dst.write(data)
+
+        # add this tile to the list and check that an error is raised
+        with pytest.raises(ValueError):
+            new_tiles = tiles + [extra_image.name]
+            rio_vrt.build_vrt("error.vrt", new_tiles)
+
+
+def test_vrt_wrong_count(tiles: List[Path]) -> None:
+    """Test that you can't create a vrt mosaic from file with different band count.
+
+    Args:
+        tiles: the list of tile path
+    """
+    # create an extra tile with a different crs
+    with NamedTemporaryFile(suffix=".tiff") as extra_image:
+        with rio.open(tiles[0]) as src:
+            kwargs = src.meta.copy()
+            kwargs.update(count=src.count + 1)
+            data = src.read()
+            new_data = np.expand_dims(np.zeros(data[0].shape), axis=0)
+            new_data = np.concatenate((data, new_data), axis=0)
+
+        with rio.open(extra_image.name, "w", **kwargs) as dst:
+            dst.write(new_data)
 
         # add this tile to the list and check that an error is raised
         with pytest.raises(ValueError):
