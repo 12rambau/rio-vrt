@@ -134,6 +134,9 @@ def build_vrt(
     attr = {"rasterXSize": str(total_width), "rasterYSize": str(total_height)}
     VRTDataset = ET.Element("VRTDataset", attr)
 
+    # don't know how to extract dataAxisToSRSAxisMapping
+    # https://gis.stackexchange.com/questions/458781/how-to-get-dataaxistosrsaxismapping-from-an-image
+    # revert to OAMS_TRADITIONAL_GIS_ORDER  until then
     ET.SubElement(VRTDataset, "SRS", {"dataAxisToSRSAxisMapping": "2,1"}).text = crs.wkt
 
     text = ", ".join([str(i) for i in transform.to_gdal()])
