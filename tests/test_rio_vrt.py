@@ -9,7 +9,7 @@ import pytest
 import rasterio as rio
 import xmlschema
 from bs4 import BeautifulSoup
-from rasterio import CRS
+from rasterio.crs import CRS
 
 import rio_vrt
 
