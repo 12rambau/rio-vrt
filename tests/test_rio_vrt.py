@@ -5,8 +5,10 @@ from typing import List
 from urllib.request import urlopen
 
 import pytest
+import rasterio as rio
 import xmlschema
 from bs4 import BeautifulSoup
+from rasterio import CRS
 
 import rio_vrt
 
@@ -88,4 +90,36 @@ def test_build_vrt_stack(tiles: List[Path], data_dir: Path, file_regression) -> 
 def test_vrt_empty() -> None:
     """Test that an error is raised when the tile list is empty."""
     with pytest.raises(ValueError):
-        rio_vrt.build_vrt("test.vrt", [])
+        rio_vrt.build_vrt("error.vrt", [])
+
+
+def test_vrt_wrong_resolution(tiles: List[Path]) -> None:
+    """Test that not all keyword can be used as resolution.
+
+    Args:
+        tiles: the list of tile path
+    """
+    with pytest.raises(ValueError):
+        rio_vrt.build_vrt("error.vrt", tiles, res="error")
+
+
+def test_vrt_wrong_crs(tiles: List[Path]) -> None:
+    """Test that you can't create a vrt from varrious crs.
+
+    Args:
+        tiles: the list of tile path
+    """
+    # create an extra tile with a different crs
+    with NamedTemporaryFile(suffix=".tiff") as extra_image:
+        with rio.open(tiles[0]) as src:
+            kwargs = src.meta.copy()
+            kwargs.update(crs=CRS.from_epsg(4326))
+            data = src.read()
+
+        with rio.open(extra_image.name, "w", **kwargs) as dst:
+            dst.write(data)
+
+        # add this tile to the list and check that an error is raised
+        with pytest.raises(ValueError):
+            new_tiles = tiles + [extra_image.name]
+            rio_vrt.build_vrt("error.vrt", new_tiles)
