@@ -2,6 +2,7 @@
 
 types = {
     "byte": "Byte",
+    "uint8": "Byte",
     "uint16": "UInt16",
     "int16": "Int16",
     "uint32": "UInt32",

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<VRTDataset rasterXSize="4096" rasterYSize="3072">
+<VRTDataset rasterXSize="791" rasterYSize="718">
  <SRS>
-  PROJCS["WGS 84 / Pseudo-Mercator",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Mercator_1SP"],PARAMETER["central_meridian",0],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],EXTENSION["PROJ4","+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs"],AUTHORITY["EPSG","3857"]]
+  PROJCS["WGS 84 / UTM zone 18N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-75],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32618"]]
  </SRS>
  <GeoTransform>
-  11525480.871357515, 4.77731426716, 0.0, 151651.06410298627, 0.0, -4.77731426716
+  101985.0, 300.0379266750948, 0.0, 2826915.0, 0.0, -300.0379266750948
  </GeoTransform>
  <OverviewList resampling="nearest">
   2 4 8
  </OverviewList>
- <VRTRasterBand band="1" dataType="UInt16">
+ <VRTRasterBand band="1" dataType="Byte">
   <Offset>
    0.0
   </Offset>
@@ -17,479 +17,542 @@
    1.0
   </Scale>
   <ColorInterp>
-   Gray
+   Red
   </ColorInterp>
-  <SimpleSource>
+  <NoDataValue>
+   0.0
+  </NoDataValue>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_1.tiff
+    raw/tile1.tiff
    </SourceFilename>
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="0" xSize="197" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_3.tiff
+    raw/tile3.tiff
    </SourceFilename>
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="0" xSize="197" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_5.tiff
+    raw/tile5.tiff
    </SourceFilename>
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="197" xSize="197" yOff="0" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_7.tiff
+    raw/tile7.tiff
    </SourceFilename>
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="197" xSize="197" yOff="358" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_9.tiff
+    raw/tile9.tiff
    </SourceFilename>
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
+   <DstRect xOff="197" xSize="197" yOff="716" ySize="2"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_11.tiff
+    raw/tile11.tiff
    </SourceFilename>
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="394" xSize="197" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_13.tiff
+    raw/tile13.tiff
    </SourceFilename>
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="394" xSize="197" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_15.tiff
+    raw/tile15.tiff
    </SourceFilename>
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="591" xSize="197" yOff="0" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
+   <SourceFilename relativeToVRT="1">
+    raw/tile17.tiff
+   </SourceFilename>
+   <SourceBand>
+    1
+   </SourceBand>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="591" xSize="197" yOff="358" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
+   <SourceFilename relativeToVRT="1">
+    raw/tile19.tiff
+   </SourceFilename>
+   <SourceBand>
+    1
+   </SourceBand>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
+   <DstRect xOff="591" xSize="197" yOff="716" ySize="2"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
+   <SourceFilename relativeToVRT="1">
+    raw/tile21.tiff
+   </SourceFilename>
+   <SourceBand>
+    1
+   </SourceBand>
+   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
+   <DstRect xOff="788" xSize="3" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
+   <SourceFilename relativeToVRT="1">
+    raw/tile23.tiff
+   </SourceFilename>
+   <SourceBand>
+    1
+   </SourceBand>
+   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
+   <DstRect xOff="788" xSize="3" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
  </VRTRasterBand>
- <VRTRasterBand band="2" dataType="UInt16">
+ <VRTRasterBand band="2" dataType="Byte">
   <Offset>
    0.0
   </Offset>
   <Scale>
    1.0
   </Scale>
-  <SimpleSource>
+  <ColorInterp>
+   Green
+  </ColorInterp>
+  <NoDataValue>
+   0.0
+  </NoDataValue>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_1.tiff
+    raw/tile1.tiff
    </SourceFilename>
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="0" xSize="197" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_3.tiff
+    raw/tile3.tiff
    </SourceFilename>
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="0" xSize="197" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_5.tiff
+    raw/tile5.tiff
    </SourceFilename>
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="197" xSize="197" yOff="0" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_7.tiff
+    raw/tile7.tiff
    </SourceFilename>
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="197" xSize="197" yOff="358" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_9.tiff
+    raw/tile9.tiff
    </SourceFilename>
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
+   <DstRect xOff="197" xSize="197" yOff="716" ySize="2"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_11.tiff
+    raw/tile11.tiff
    </SourceFilename>
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="394" xSize="197" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_13.tiff
+    raw/tile13.tiff
    </SourceFilename>
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="394" xSize="197" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_15.tiff
+    raw/tile15.tiff
    </SourceFilename>
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="591" xSize="197" yOff="0" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
+   <SourceFilename relativeToVRT="1">
+    raw/tile17.tiff
+   </SourceFilename>
+   <SourceBand>
+    2
+   </SourceBand>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="591" xSize="197" yOff="358" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
+   <SourceFilename relativeToVRT="1">
+    raw/tile19.tiff
+   </SourceFilename>
+   <SourceBand>
+    2
+   </SourceBand>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
+   <DstRect xOff="591" xSize="197" yOff="716" ySize="2"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
+   <SourceFilename relativeToVRT="1">
+    raw/tile21.tiff
+   </SourceFilename>
+   <SourceBand>
+    2
+   </SourceBand>
+   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
+   <DstRect xOff="788" xSize="3" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
+   <SourceFilename relativeToVRT="1">
+    raw/tile23.tiff
+   </SourceFilename>
+   <SourceBand>
+    2
+   </SourceBand>
+   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
+   <DstRect xOff="788" xSize="3" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
  </VRTRasterBand>
- <VRTRasterBand band="3" dataType="UInt16">
+ <VRTRasterBand band="3" dataType="Byte">
   <Offset>
    0.0
   </Offset>
   <Scale>
    1.0
   </Scale>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_1.tiff
-   </SourceFilename>
-   <SourceBand>
-    3
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_3.tiff
-   </SourceFilename>
-   <SourceBand>
-    3
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_5.tiff
-   </SourceFilename>
-   <SourceBand>
-    3
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_7.tiff
-   </SourceFilename>
-   <SourceBand>
-    3
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_9.tiff
-   </SourceFilename>
-   <SourceBand>
-    3
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_11.tiff
-   </SourceFilename>
-   <SourceBand>
-    3
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_13.tiff
-   </SourceFilename>
-   <SourceBand>
-    3
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_15.tiff
-   </SourceFilename>
-   <SourceBand>
-    3
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
- </VRTRasterBand>
- <VRTRasterBand band="4" dataType="UInt16">
-  <Offset>
+  <ColorInterp>
+   Blue
+  </ColorInterp>
+  <NoDataValue>
    0.0
-  </Offset>
-  <Scale>
-   1.0
-  </Scale>
-  <SimpleSource>
+  </NoDataValue>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_1.tiff
+    raw/tile1.tiff
    </SourceFilename>
    <SourceBand>
-    4
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="0" xSize="197" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_3.tiff
+    raw/tile3.tiff
    </SourceFilename>
    <SourceBand>
-    4
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="0" xSize="197" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_5.tiff
+    raw/tile5.tiff
    </SourceFilename>
    <SourceBand>
-    4
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="197" xSize="197" yOff="0" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_7.tiff
+    raw/tile7.tiff
    </SourceFilename>
    <SourceBand>
-    4
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="197" xSize="197" yOff="358" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_9.tiff
+    raw/tile9.tiff
    </SourceFilename>
    <SourceBand>
-    4
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
+   <DstRect xOff="197" xSize="197" yOff="716" ySize="2"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_11.tiff
+    raw/tile11.tiff
    </SourceFilename>
    <SourceBand>
-    4
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="394" xSize="197" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_13.tiff
+    raw/tile13.tiff
    </SourceFilename>
    <SourceBand>
-    4
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="394" xSize="197" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_15.tiff
+    raw/tile15.tiff
    </SourceFilename>
    <SourceBand>
-    4
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
- </VRTRasterBand>
- <VRTRasterBand band="5" dataType="UInt16">
-  <Offset>
-   0.0
-  </Offset>
-  <Scale>
-   1.0
-  </Scale>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="591" xSize="197" yOff="0" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_1.tiff
+    raw/tile17.tiff
    </SourceFilename>
    <SourceBand>
-    5
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
+   <DstRect xOff="591" xSize="197" yOff="358" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_3.tiff
+    raw/tile19.tiff
    </SourceFilename>
    <SourceBand>
-    5
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="0" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
+   <DstRect xOff="591" xSize="197" yOff="716" ySize="2"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_5.tiff
+    raw/tile21.tiff
    </SourceFilename>
    <SourceBand>
-    5
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
+   <DstRect xOff="788" xSize="3" yOff="179" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
+  <ComplexSource>
    <SourceFilename relativeToVRT="1">
-    tile_7.tiff
+    raw/tile23.tiff
    </SourceFilename>
    <SourceBand>
-    5
+    3
    </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="1024" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_9.tiff
-   </SourceFilename>
-   <SourceBand>
-    5
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_11.tiff
-   </SourceFilename>
-   <SourceBand>
-    5
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="2048" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_13.tiff
-   </SourceFilename>
-   <SourceBand>
-    5
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="0" ySize="1024"/>
-  </SimpleSource>
-  <SimpleSource>
-   <SourceFilename relativeToVRT="1">
-    tile_15.tiff
-   </SourceFilename>
-   <SourceBand>
-    5
-   </SourceBand>
-   <SourceProperties BlockXSize="512" BlockYSize="512" DataType="UInt16" RasterXSize="1024" RasterYSize="1024"/>
-   <SrcRect xOff="0" xSize="1024" yOff="0" ySize="1024"/>
-   <DstRect xOff="3072" xSize="1024" yOff="2048" ySize="1024"/>
-  </SimpleSource>
+   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
+   <DstRect xOff="788" xSize="3" yOff="537" ySize="179"/>
+   <NODATA>
+    0.0
+   </NODATA>
+  </ComplexSource>
  </VRTRasterBand>
 </VRTDataset>
