@@ -148,3 +148,21 @@ def test_vrt_wrong_count(tiles: List[Path]) -> None:
         with pytest.raises(ValueError):
             new_tiles = tiles + [extra_image.name]
             rio_vrt.build_vrt("error.vrt", new_tiles)
+
+
+@pytest.mark.parametrize("res", ["highest", "average", "lowest", (6, 6)])
+def test_vrt_resolutions(
+    tiles: List[Path], data_dir: Path, file_regression, res
+) -> None:
+    """Test vrt with all the available resolution options.
+
+    Args:
+        tiles: the list of tile path
+        data_dir: the data directory
+        file_regression: the pytest regression file fixture
+        res: the resolution parameter
+    """
+    with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+        file = rio_vrt.build_vrt(vrt_path.name, tiles, relative=True, res=res)
+        vrt_tree = BeautifulSoup(file.read_text(), "xml").prettify()
+        file_regression.check(vrt_tree, basename=f"{res}_vrt", extension=".vrt")
