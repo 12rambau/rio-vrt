@@ -13,7 +13,9 @@ from rasterio.crs import CRS
 
 import rio_vrt
 
-_xsd_file = "https://raw.githubusercontent.com/OSGeo/gdal/master/data/gdalvrt.xsd"
+_xsd_file = (
+    "https://raw.githubusercontent.com/OSGeo/gdal/master/frmts/vrt/data/gdalvrt.xsd"
+)
 
 
 def test_build_vrt_html_shema(tiles: List[Path], data_dir: Path) -> None:
