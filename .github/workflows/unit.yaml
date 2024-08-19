@@ -38,10 +38,8 @@ jobs:
           python-version: "3.10"
       - name: Install dependencies
         run: pip install .[doc]
-      - name: install custom dependencies to avoid known issues
+      - name: run documentation build
         run: |
-          pip install git+https://github.com/sphinx-doc/sphinx.git
-          pip install git+https://github.com/12rambau/deprecated.git
           sphinx-apidoc -o docs/api rio_vrt
           sphinx-build -v -b html docs docs/_build/html -w warnings.txt
           python tests/check_warnings.py
