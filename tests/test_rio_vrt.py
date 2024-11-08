@@ -25,7 +25,7 @@ def test_build_vrt_html_shema(tiles: List[Path], data_dir: Path) -> None:
         tiles: the list of tile path
         data_dir: the data directory
     """
-    with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+    with NamedTemporaryFile(suffix=".vrt", dir=data_dir, mode="w") as vrt_path:
         vrt_file = rio_vrt.build_vrt(vrt_path.name, tiles)
         xml_schema = xmlschema.XMLSchema(urlopen(_xsd_file))
         assert xml_schema.validate(vrt_file) is None
@@ -38,7 +38,7 @@ def test_build_vrt_stack_shema(tiles: List[Path], data_dir: Path) -> None:
         tiles: the list of tile path
         data_dir: the data directory
     """
-    with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+    with NamedTemporaryFile(suffix=".vrt", dir=data_dir, mode="w") as vrt_path:
         vrt_file = rio_vrt.build_vrt(vrt_path.name, tiles, mosaic=False)
         xml_schema = xmlschema.XMLSchema(urlopen(_xsd_file))
         assert xml_schema.validate(vrt_file) is None
@@ -52,7 +52,7 @@ def test_build_vrt_complete(tiles: List[Path], data_dir: Path, file_regression) 
         data_dir: the data directory
         file_regression: the pytest regression file fixture
     """
-    with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+    with NamedTemporaryFile(suffix=".vrt", dir=data_dir, mode="w") as vrt_path:
         file = rio_vrt.build_vrt(vrt_path.name, tiles, relative=True)
         vrt_tree = BeautifulSoup(file.read_text(), "xml").prettify()
         file_regression.check(vrt_tree, basename="complete_vrt", extension=".vrt")
@@ -68,7 +68,7 @@ def test_build_vrt_hollow(tiles: List[Path], data_dir: Path, file_regression) ->
     """
     # filter only the pair tiles
     tiles = [t for i, t in enumerate(tiles) if i % 2]
-    with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+    with NamedTemporaryFile(suffix=".vrt", dir=data_dir, mode="w") as vrt_path:
         file = rio_vrt.build_vrt(vrt_path.name, tiles, relative=True)
         vrt_tree = BeautifulSoup(file.read_text(), "xml").prettify()
         file_regression.check(vrt_tree, basename="hollow_vrt", extension=".vrt")
@@ -84,7 +84,7 @@ def test_build_vrt_stack(tiles: List[Path], data_dir: Path, file_regression) -> 
     """
     # filter only the pair tiles
     tiles = [t for i, t in enumerate(tiles) if i % 2]
-    with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+    with NamedTemporaryFile(suffix=".vrt", dir=data_dir, mode="w") as vrt_path:
         file = rio_vrt.build_vrt(vrt_path.name, tiles, relative=True, mosaic=False)
         vrt_tree = BeautifulSoup(file.read_text(), "xml").prettify()
         file_regression.check(vrt_tree, basename="stack_vrt", extension=".vrt")

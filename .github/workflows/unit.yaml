@@ -54,8 +54,8 @@ jobs:
         include:
           - os: macos-latest # macos test
             python-version: "3.11"
-          #- os: windows-latest # windows test
-          #  python-version: "3.11"
+          - os: windows-latest # windows test
+            python-version: "3.11"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
