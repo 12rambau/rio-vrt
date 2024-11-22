@@ -12,6 +12,9 @@ from rasterio.enums import ColorInterp
 
 from .enums import resolutions, types
 
+DEFAULT_CRS = rio.crs.CRS.from_epsg("4326")
+"The default crs to use in the vrt file if nothing specified in the sources."
+
 
 def _add_source_content(
     Source: ET.Element, src: rio.DatasetReader, type: str, xoff: str, yoff: str
@@ -77,7 +80,7 @@ def build_vrt(
 
     # read global informations from the first file
     with rio.open(files[0]) as f:
-        crs = f.crs
+        crs = f.crs or DEFAULT_CRS
         count = f.count
         dtypes = f.dtypes
         colorinterps = f.colorinterp
@@ -91,9 +94,10 @@ def build_vrt(
     # sanity checks
     for file in files:
         with rio.open(file) as f:
-            if f.crs != crs:
+            loc_crs = f.crs or DEFAULT_CRS
+            if loc_crs != crs:
                 raise ValueError(
-                    f'the crs ({f.crs}) from file "{file}" is not corresponding to the global one ({crs})'
+                    f'the crs ({loc_crs}) from file "{file}" is not corresponding to the global one ({crs})'
                 )
 
             if mosaic and f.count != count:
