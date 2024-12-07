@@ -29,7 +29,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -43,7 +43,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -57,7 +57,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -71,7 +71,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -85,7 +85,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="0" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -99,7 +99,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -113,7 +113,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -127,7 +127,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -141,7 +141,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -155,7 +155,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="9851" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -169,7 +169,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -183,7 +183,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -197,7 +197,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -211,7 +211,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -225,7 +225,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="19702" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -239,7 +239,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -253,7 +253,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -267,7 +267,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -281,7 +281,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -295,7 +295,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="29554" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -309,7 +309,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="0" ySize="179"/>
    <NODATA>
@@ -323,7 +323,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="8951" ySize="179"/>
    <NODATA>
@@ -337,7 +337,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="17902" ySize="179"/>
    <NODATA>
@@ -351,7 +351,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="26854" ySize="179"/>
    <NODATA>
@@ -365,7 +365,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="2"/>
+   <SourceProperties BlockXSize="3" BlockYSize="2" DataType="Byte" RasterXSize="3" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="2"/>
    <DstRect xOff="39405" xSize="3" yOff="35805" ySize="2"/>
    <NODATA>
@@ -393,7 +393,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -407,7 +407,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -421,7 +421,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -435,7 +435,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -449,7 +449,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="0" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -463,7 +463,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -477,7 +477,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -491,7 +491,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -505,7 +505,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -519,7 +519,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="9851" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -533,7 +533,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -547,7 +547,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -561,7 +561,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -575,7 +575,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -589,7 +589,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="19702" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -603,7 +603,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -617,7 +617,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -631,7 +631,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -645,7 +645,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -659,7 +659,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="29554" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -673,7 +673,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="0" ySize="179"/>
    <NODATA>
@@ -687,7 +687,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="8951" ySize="179"/>
    <NODATA>
@@ -701,7 +701,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="17902" ySize="179"/>
    <NODATA>
@@ -715,7 +715,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="26854" ySize="179"/>
    <NODATA>
@@ -729,7 +729,7 @@
    <SourceBand>
     2
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="2"/>
+   <SourceProperties BlockXSize="3" BlockYSize="2" DataType="Byte" RasterXSize="3" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="2"/>
    <DstRect xOff="39405" xSize="3" yOff="35805" ySize="2"/>
    <NODATA>
@@ -757,7 +757,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -771,7 +771,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -785,7 +785,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -799,7 +799,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -813,7 +813,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="0" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -827,7 +827,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -841,7 +841,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -855,7 +855,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -869,7 +869,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="9851" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -883,7 +883,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="9851" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -897,7 +897,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -911,7 +911,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -925,7 +925,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -939,7 +939,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="19702" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -953,7 +953,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="19702" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -967,7 +967,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="0" ySize="179"/>
    <NODATA>
@@ -981,7 +981,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="8951" ySize="179"/>
    <NODATA>
@@ -995,7 +995,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="17902" ySize="179"/>
    <NODATA>
@@ -1009,7 +1009,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="29554" xSize="197" yOff="26854" ySize="179"/>
    <NODATA>
@@ -1023,7 +1023,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="29554" xSize="197" yOff="35805" ySize="2"/>
    <NODATA>
@@ -1037,7 +1037,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="0" ySize="179"/>
    <NODATA>
@@ -1051,7 +1051,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="8951" ySize="179"/>
    <NODATA>
@@ -1065,7 +1065,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="17902" ySize="179"/>
    <NODATA>
@@ -1079,7 +1079,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="39405" xSize="3" yOff="26854" ySize="179"/>
    <NODATA>
@@ -1093,7 +1093,7 @@
    <SourceBand>
     3
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="2"/>
+   <SourceProperties BlockXSize="3" BlockYSize="2" DataType="Byte" RasterXSize="3" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="2"/>
    <DstRect xOff="39405" xSize="3" yOff="35805" ySize="2"/>
    <NODATA>

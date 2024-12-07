@@ -17,7 +17,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="179" ySize="179"/>
   </ComplexSource>
@@ -30,7 +30,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="0" xSize="197" yOff="537" ySize="179"/>
   </ComplexSource>
@@ -43,7 +43,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="197" xSize="197" yOff="0" ySize="179"/>
   </ComplexSource>
@@ -56,7 +56,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="197" xSize="197" yOff="358" ySize="179"/>
   </ComplexSource>
@@ -69,7 +69,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="197" xSize="197" yOff="716" ySize="2"/>
   </ComplexSource>
@@ -82,7 +82,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="394" xSize="197" yOff="179" ySize="179"/>
   </ComplexSource>
@@ -95,7 +95,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="394" xSize="197" yOff="537" ySize="179"/>
   </ComplexSource>
@@ -108,7 +108,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="591" xSize="197" yOff="0" ySize="179"/>
   </ComplexSource>
@@ -121,7 +121,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="179"/>
+   <SourceProperties BlockXSize="197" BlockYSize="3" DataType="Byte" RasterXSize="197" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="179"/>
    <DstRect xOff="591" xSize="197" yOff="358" ySize="179"/>
   </ComplexSource>
@@ -134,7 +134,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="197" RasterYSize="2"/>
+   <SourceProperties BlockXSize="197" BlockYSize="2" DataType="Byte" RasterXSize="197" RasterYSize="2"/>
    <SrcRect xOff="0" xSize="197" yOff="0" ySize="2"/>
    <DstRect xOff="591" xSize="197" yOff="716" ySize="2"/>
   </ComplexSource>
@@ -147,7 +147,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="788" xSize="3" yOff="179" ySize="179"/>
   </ComplexSource>
@@ -160,7 +160,7 @@
    <SourceBand>
     1
    </SourceBand>
-   <SourceProperties DataType="Byte" RasterXSize="3" RasterYSize="179"/>
+   <SourceProperties BlockXSize="3" BlockYSize="3" DataType="Byte" RasterXSize="3" RasterYSize="179"/>
    <SrcRect xOff="0" xSize="3" yOff="0" ySize="179"/>
    <DstRect xOff="788" xSize="3" yOff="537" ySize="179"/>
   </ComplexSource>
