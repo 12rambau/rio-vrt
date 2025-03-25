@@ -21,5 +21,5 @@ As straight forward as it should be: list all the file you want to gather and ca
 
     from rio_vrt import build_vrt
 
-    raster_files = ["example.tif", "example2.tif", "...", "examplen.tif"]
+    raster_files = ["example-1.tif", "example-2.tif", "...", "example-N.tif"]
     vrt_file = build_vrt("example.vrt", raster_files)

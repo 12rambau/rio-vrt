@@ -47,7 +47,7 @@ A simple librairy to build a vrt from multiple raster source relying only on ras
 
     from rio_vrt import build_vrt
 
-    raster_files = ["example.tif", "example2.tif", "...", "examplen.tif"]
+    raster_files = ["example-1.tif", "example-2.tif", "...", "example-N.tif"]
     vrt_file = build_vrt("example.vrt", raster_files)
 
 Credits
