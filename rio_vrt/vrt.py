@@ -14,7 +14,7 @@ from .enums import resolutions, types
 
 
 def _add_source_content(
-    Source: ET.Element, src: rio.DatasetReader, type: str, xoff: str, yoff: str
+    Source: ET.Element, src: rio.DatasetReader, src_type: str, xoff: str, yoff: str
 ) -> None:
     """Add the content of a sourcefile in xml."""
     width, height = str(src.width), str(src.height)
@@ -24,7 +24,7 @@ def _add_source_content(
     attr = {
         "RasterXSize": width,
         "RasterYSize": height,
-        "DataType": type,
+        "DataType": src_type,
     }
 
     # optional attributes
@@ -52,9 +52,12 @@ def build_vrt(
     Arguments:
         vrt_path: the final vrt file
         files: a list of rasterio readable files
-        relative: use a path relative to the vrt file. The files path must be relative to the vrt.
-        mosaic: The method to use to gather images in the vrt. ``MOSAIC`` (True) will mosaic each band of each image together. ``STACK`` (False) will create one band for each file using the first band of each file.*
-        res: The resolution to use in the vrt geotransform. You can use a string (average, highest or lowest) or use a defined tuple of values (xres, yres).
+        relative: use a path relative to the vrt file. The files path must be relative to the vrt. If using urls,
+                  must be set to False.
+        mosaic: The method to use to gather images in the vrt. ``MOSAIC`` (True) will mosaic each band of each image
+                together. ``STACK`` (False) will create one band for each file using the first band of each file.*
+        res: The resolution to use in the vrt geotransform. You can use a string (average, highest or lowest) or use
+             a defined tuple of values (xres, yres).
 
     Returns:
         the path to the vrt file
@@ -62,8 +65,12 @@ def build_vrt(
     # transform the final file in Path
     vrt_path = Path(vrt_path).resolve()
 
-    # transform all the file path into Path objects
-    files = [Path(f).resolve() for f in files]
+    # transform all the file path into str
+    files = list(map(str, files))
+    if not relative:
+        files = [str(Path(f).resolve()) if Path(f).exists() else f for f in files]
+    if any([not Path(f).exists() for f in files]) and relative:
+        raise ValueError('Relative must be set to True if using urls not on local file system')
 
     # cannot do anything if there are no files
     if len(files) == 0:
@@ -113,16 +120,16 @@ def build_vrt(
             bottom_.append(f.bounds.bottom)
 
     # get the spatial extend of the dataset
-    left = min(*left_)
-    bottom = min(*bottom_)
-    right = max(*right_)
-    top = max(*top_)
+    left = min(left_)
+    bottom = min(bottom_)
+    right = max(right_)
+    top = max(top_)
 
     # get the resolution
     if res == "highest":
-        xres, yres = max(*xres_), max(*yres_)
+        xres, yres = max(xres_), max(yres_)
     elif res == "lowest":
-        xres, yres = min(*xres_), min(*yres_)
+        xres, yres = min(xres_), min(yres_)
     elif res == "average":
         xres, yres = mean(xres_), mean(yres_)
     elif isinstance(res, tuple):
@@ -183,7 +190,7 @@ def build_vrt(
                     Source = ET.SubElement(VRTRasterBands_dict[i], source_type)
 
                     attr = {"relativeToVRT": relativeToVRT}
-                    text = str(f) if not relative else relpath(f, vrt_path.parent)
+                    text = f
                     ET.SubElement(Source, "SourceFilename", attr).text = text
 
                     ET.SubElement(Source, "SourceBand").text = str(i)
@@ -191,7 +198,7 @@ def build_vrt(
                     _add_source_content(
                         Source=Source,
                         src=src,
-                        type=types[dtypes[i - 1]],
+                        src_type=types[dtypes[i - 1]],
                         xoff=str(abs(round((src.bounds.left - left) / xres))),
                         yoff=str(abs(round((src.bounds.top - top) / yres))),
                     )
@@ -215,7 +222,7 @@ def build_vrt(
 
             relativeToVRT = "1" if relative is True else "0"
             attr = {"relativeToVRT": relativeToVRT}
-            text = str(f) if not relative else relpath(f, vrt_path.parent)
+            text = f
             ET.SubElement(ComplexSource, "SourceFilename", attr).text = text
 
             ET.SubElement(ComplexSource, "SourceBand").text = "1"
@@ -224,7 +231,7 @@ def build_vrt(
                 _add_source_content(
                     Source=ComplexSource,
                     src=src,
-                    type=types[dtypes[0]],
+                    src_type=types[dtypes[0]],
                     xoff=str(abs(round((src.bounds.left - left) / xres))),
                     yoff=str(abs(round((src.bounds.top - top) / yres))),
                 )
