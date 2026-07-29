@@ -141,7 +141,8 @@ def build_vrt(
     # don't know how to extract dataAxisToSRSAxisMapping
     # https://gis.stackexchange.com/questions/458781/how-to-get-dataaxistosrsaxismapping-from-an-image
     # revert to OAMS_TRADITIONAL_GIS_ORDER  until then
-    ET.SubElement(VRTDataset, "SRS").text = crs.wkt
+    if crs is not None:
+        ET.SubElement(VRTDataset, "SRS").text = crs.wkt
 
     text = ", ".join([str(i) for i in transform.to_gdal()])
     ET.SubElement(VRTDataset, "GeoTransform").text = text

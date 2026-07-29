@@ -106,6 +106,38 @@ def test_vrt_wrong_resolution(tiles: List[Path]) -> None:
         rio_vrt.build_vrt("error.vrt", tiles, res="error")
 
 
+def test_vrt_no_crs(tiles: List[Path], data_dir: Path) -> None:
+    """Test that a vrt can be created from rasters without a CRS attribute.
+
+    Args:
+        tiles: the list of tile path
+        data_dir: the data directory
+    """
+    # create tiles without a CRS
+    no_crs_tiles = []
+    with NamedTemporaryFile(suffix=".tiff", delete=False) as t0, NamedTemporaryFile(
+        suffix=".tiff", delete=False
+    ) as t1:
+        for src_path, dst_file in [(tiles[0], t0), (tiles[1], t1)]:
+            with rio.open(src_path) as src:
+                kwargs = src.meta.copy()
+                kwargs.update(crs=None)
+                data = src.read()
+            with rio.open(dst_file.name, "w", **kwargs) as dst:
+                dst.write(data)
+            no_crs_tiles.append(Path(dst_file.name))
+
+    try:
+        with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+            vrt_file = rio_vrt.build_vrt(vrt_path.name, no_crs_tiles)
+            # the VRT should be created successfully without an SRS element
+            content = vrt_file.read_text()
+            assert "<SRS" not in content
+    finally:
+        for p in no_crs_tiles:
+            p.unlink(missing_ok=True)
+
+
 def test_vrt_wrong_crs(tiles: List[Path]) -> None:
     """Test that you can't create a vrt from varrious crs.
 
