@@ -90,6 +90,18 @@ def test_build_vrt_stack(tiles: List[Path], data_dir: Path, file_regression) -> 
         file_regression.check(vrt_tree, basename="stack_vrt", extension=".vrt")
 
 
+def test_vrt_single_file(tiles: List[Path], data_dir: Path) -> None:
+    """Test that build_vrt works with a single file.
+
+    Args:
+        tiles: the list of tile path
+        data_dir: the data directory
+    """
+    with NamedTemporaryFile(suffix=".vrt", dir=data_dir) as vrt_path:
+        vrt_file = rio_vrt.build_vrt(vrt_path.name, [tiles[0]])
+        assert vrt_file.exists()
+
+
 def test_vrt_empty() -> None:
     """Test that an error is raised when the tile list is empty."""
     with pytest.raises(ValueError):

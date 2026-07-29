@@ -113,16 +113,16 @@ def build_vrt(
             bottom_.append(f.bounds.bottom)
 
     # get the spatial extend of the dataset
-    left = min(*left_)
-    bottom = min(*bottom_)
-    right = max(*right_)
-    top = max(*top_)
+    left = min(left_)
+    bottom = min(bottom_)
+    right = max(right_)
+    top = max(top_)
 
     # get the resolution
     if res == "highest":
-        xres, yres = max(*xres_), max(*yres_)
+        xres, yres = max(xres_), max(yres_)
     elif res == "lowest":
-        xres, yres = min(*xres_), min(*yres_)
+        xres, yres = min(xres_), min(yres_)
     elif res == "average":
         xres, yres = mean(xres_), mean(yres_)
     elif isinstance(res, tuple):
